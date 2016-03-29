@@ -1,0 +1,1 @@
+This is src/main/resources/static/B.txt

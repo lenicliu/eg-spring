@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    ROOT: INFO
+
+zuul:
+  routes:
+    users:
+      path: /users
+      url: http://localhost:8082
+    books:
+      path: /books
+      url: http://localhost:8081

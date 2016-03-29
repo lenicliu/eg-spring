@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+      
+info:
+  app:
+    name: UserService
+    description: This is a user service
+    version: 1.0.0

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lenic.jboot.mybatis.mapper.MessageMapper">
+	<select id="findMessage" resultType="Message">
+		SELECT * FROM MESSAGE ORDER BY CREATED DESC
+	</select>
+	<select id="deleteMessage" parameterType="java.lang.String">
+		DELETE FROM MESSAGE WHERE ID = #{id}
+	</select>
+	<select id="createMessage" parameterType="Message">
+		INSERT INTO MESSAGE(ID,AUTHOR,EMAIL,CONTENT,CREATED)VALUES(#{id},#{author},#{email},#{content},#{created})
+	</select>
+	<select id="findMaxId" resultType="java.lang.String">
+		SELECT MAX(ID) FROM MESSAGE 
+	</select>
+</mapper>
