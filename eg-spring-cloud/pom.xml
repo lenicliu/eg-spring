@@ -12,5 +12,6 @@
 		<module>eg-spring-cloud-gateway</module>
 		<module>eg-spring-cloud-discovery</module>
 		<module>eg-spring-cloud-docker</module>
+		<module>eg-spring-cloud-loadbalance</module>
 	</modules>
 </project>

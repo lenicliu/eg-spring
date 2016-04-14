@@ -1,0 +1,1 @@
+java -jar eg-spring-cloud-loadbalance-discovery\target\eg-spring-cloud-loadbalance-discovery-0.0.1-SNAPSHOT.jar
