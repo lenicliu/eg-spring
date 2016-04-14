@@ -1,1 +1,0 @@
-java -jar eg-spring-cloud-loadbalance-bookservice\target\eg-spring-cloud-loadbalance-bookservice-0.0.1-SNAPSHOT.jar --server.port=8081
