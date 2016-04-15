@@ -8,6 +8,17 @@
 	</parent>
 	<artifactId>eg-spring-cloud</artifactId>
 	<packaging>pom</packaging>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-parent</artifactId>
+				<version>Brixton.RC1</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<modules>
 		<module>eg-spring-cloud-gateway</module>
 		<module>eg-spring-cloud-discovery</module>
