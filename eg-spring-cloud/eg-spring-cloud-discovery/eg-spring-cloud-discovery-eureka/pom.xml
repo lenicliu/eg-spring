@@ -11,7 +11,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
-			<version>1.0.4.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>servlet-api</artifactId>

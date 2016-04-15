@@ -19,7 +19,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<version>1.0.4.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
