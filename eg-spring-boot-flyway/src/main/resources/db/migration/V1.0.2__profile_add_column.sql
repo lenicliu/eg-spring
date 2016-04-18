@@ -1,0 +1,1 @@
+alter table profile add column role char(1) not null default 'U';

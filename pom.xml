@@ -43,6 +43,7 @@
 		<module>eg-spring-boot-websocket</module>
 		<module>eg-spring-cloud</module>
 		<module>eg-spring-security</module>
+		<module>eg-spring-boot-flyway</module>
 	</modules>
 
 	<repositories>
