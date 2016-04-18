@@ -1,5 +1,4 @@
 
-
 /* Create Tables */
 
 CREATE TABLE tb_user
@@ -9,6 +8,3 @@ CREATE TABLE tb_user
 	email varchar(50),
 	PRIMARY KEY (id)
 );
-
-
-
