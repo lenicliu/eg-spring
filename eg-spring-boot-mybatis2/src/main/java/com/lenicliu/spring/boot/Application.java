@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @SpringBootApplication
-@MapperScan("org.lenic.jboot.mybatis.mapper")
+@MapperScan("com.lenicliu.spring.boot.mapper")
 public class Application {
 
 	@RequestMapping("/")
