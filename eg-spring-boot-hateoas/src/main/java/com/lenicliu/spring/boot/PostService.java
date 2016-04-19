@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.junit.Assert;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 @Service
 public class PostService {
@@ -55,7 +55,7 @@ public class PostService {
 	}
 
 	public void modify(Long id, Post post) {
-		Assert.assertEquals(id, post.getId());
+		Assert.isTrue(id.equals(post.getId()));
 		POSTS.put(id, post);
 	}
 	

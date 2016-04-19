@@ -13,12 +13,12 @@
 
 		<jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false" userId="sa" password="sa" />
 
-		<javaModelGenerator targetPackage="org.lenic.jboot.mybatis.model" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="com.lenicliu.spring.boot.model" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="org.lenic.jboot.mybatis.mapper" targetProject="src/main/java">
+		<javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.lenicliu.spring.boot.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 

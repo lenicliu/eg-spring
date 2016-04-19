@@ -1,5 +1,7 @@
 package com.lenicliu.spring.boot.mapper;
 
+import com.lenicliu.spring.boot.model.Message;
+import com.lenicliu.spring.boot.model.MessageExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
@@ -13,9 +15,6 @@ import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
-
-import com.lenicliu.spring.boot.model.Message;
-import com.lenicliu.spring.boot.model.MessageExample;
 
 public interface MessageMapper {
     /**

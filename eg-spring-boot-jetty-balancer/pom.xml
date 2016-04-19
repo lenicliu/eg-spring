@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-proxy</artifactId>
-			<version>9.2.15.v20160210</version>
+			<version>9.3.9.M1</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -13,13 +13,12 @@ import static org.apache.ibatis.jdbc.SqlBuilder.UPDATE;
 import static org.apache.ibatis.jdbc.SqlBuilder.VALUES;
 import static org.apache.ibatis.jdbc.SqlBuilder.WHERE;
 
-import java.util.List;
-import java.util.Map;
-
 import com.lenicliu.spring.boot.model.Message;
-import com.lenicliu.spring.boot.model.MessageExample;
 import com.lenicliu.spring.boot.model.MessageExample.Criteria;
 import com.lenicliu.spring.boot.model.MessageExample.Criterion;
+import com.lenicliu.spring.boot.model.MessageExample;
+import java.util.List;
+import java.util.Map;
 
 public class MessageSqlProvider {
 

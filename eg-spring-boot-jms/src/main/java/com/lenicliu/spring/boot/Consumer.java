@@ -5,8 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Consumer {
-
-	@JmsListener(destination = "jboot")
+	@JmsListener(destination = "spring-boot-jms")
 	public String resolveMessage(String message) {
 		return "Hey, lenicliu: " + message;
 	}

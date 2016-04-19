@@ -10,6 +10,6 @@ public class Producer {
 	private JmsMessagingTemplate template;
 
 	public String sendMessage(String message) {
-		return template.convertSendAndReceive("jboot", message, String.class);
+		return template.convertSendAndReceive("spring-boot-jms", message, String.class);
 	}
 }
