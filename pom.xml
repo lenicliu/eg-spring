@@ -30,7 +30,7 @@
 		<module>eg-spring-boot-multiviews</module>
 		<module>eg-spring-boot-mybatis</module>
 		<module>eg-spring-boot-mybatis-generator</module>
-		<module>eg-spring-boot-mybatis2</module>
+		<module>eg-spring-boot-mybatis-starter</module>
 		<module>eg-spring-boot-pretty-json</module>
 		<module>eg-spring-boot-properties</module>
 		<module>eg-spring-boot-rmi</module>

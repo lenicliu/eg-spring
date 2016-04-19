@@ -4,28 +4,22 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
 @Controller
-@EnableWebMvc
+@SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
 
 	@RequestMapping(value = "/user", produces = { "application/xml", "application/json" })
 	public @ResponseBody User findUser() {
-		return new User("张三", 16, "男");
+		return new User("Richard", 16, "男");
 	}
 
 	@RequestMapping(value = "/user", produces = { "text/html" })
