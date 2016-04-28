@@ -10,8 +10,8 @@
 			<#else>
 				<li><a href="${request.contextPath}/login">login</a></li>
 			</#if>
-			<li><a href="${request.contextPath}/home">profile</a></li>
-			<li><a href="${request.contextPath}/admin">administrator</a></li>
+			<li><a href="${request.contextPath}/home">home</a></li>
+			<li><a href="${request.contextPath}/admin">admin</a></li>
 			<#if Session["org.apache.shiro.subject.support.DefaultSubjectContext_PRINCIPALS_SESSION_KEY"]?exists>
 				<li><a href="${request.contextPath}/logout">logout</a></li>
 			</#if>

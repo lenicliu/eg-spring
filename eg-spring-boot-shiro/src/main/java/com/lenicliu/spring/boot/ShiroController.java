@@ -12,14 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ShiroController {
 
-	private Logger	logger	= LoggerFactory.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	@RequestMapping("/")
-	public String enter() {
-		return "redirect:index";
-	}
-
-	@RequestMapping("/index")
+	@RequestMapping({ "/", "/index" })
 	public String index() {
 		return "index";
 	}
@@ -41,8 +36,7 @@ public class ShiroController {
 
 	@RequestMapping("/logout")
 	public String logout() {
-		Subject currentUser = SecurityUtils.getSubject();
-		currentUser.logout();
+		SecurityUtils.getSubject().logout();
 		return "redirect:index";
 	}
 
