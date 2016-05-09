@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -28,7 +28,7 @@ public class ApplicationIntegrationTests {
 
 	@Before
 	public void before() {
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 	}
 
 	@After
