@@ -44,6 +44,7 @@
 		<module>eg-spring-cloud</module>
 		<module>eg-spring-security</module>
 		<module>eg-spring-boot-flyway</module>
+		<module>eg-spring-boot-session-jdbc</module>
 	</modules>
 
 	<dependencyManagement>
