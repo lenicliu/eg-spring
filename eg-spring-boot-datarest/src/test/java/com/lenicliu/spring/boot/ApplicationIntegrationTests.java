@@ -27,11 +27,14 @@ public class ApplicationIntegrationTests {
     public void testUsers(){
     	ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/users", String.class);
     	Assert.assertTrue(response.getStatusCode().is2xxSuccessful());
+    	Assert.assertTrue(response.getBody().contains("wangwu"));
     }
     
     @Test
     public void testUsers1(){
     	ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/users/1", String.class);
     	Assert.assertTrue(response.getStatusCode().is2xxSuccessful());
+    	Assert.assertTrue(response.getBody().contains("zhangsan"));
+    	Assert.assertFalse(response.getBody().contains("wangwu"));
     }
 }

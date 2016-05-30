@@ -62,7 +62,7 @@
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-proxy</artifactId>
-				<version>9.3.9.M1</version>
+				<version>9.3.9.v20160517</version>
 			</dependency>
 			<dependency>
 				<groupId>org.mybatis</groupId>
@@ -87,12 +87,12 @@
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-web</artifactId>
-				<version>1.2.4</version>
+				<version>1.2.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-spring</artifactId>
-				<version>1.2.4</version>
+				<version>1.2.5</version>
 			</dependency>
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
@@ -102,7 +102,7 @@
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>bootstrap</artifactId>
-				<version>4.0.0-alpha.2</version>
+				<version>3.3.6</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.session</groupId>
@@ -124,28 +124,8 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>spring-libs-milestone-local</id>
-			<url>https://repo.spring.io/list/libs-milestone-local</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>spring-libs-release</id>
 			<url>https://repo.spring.io/list/libs-release</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-libs-milestone</id>
-			<url>https://repo.spring.io/list/libs-milestone</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

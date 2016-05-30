@@ -13,7 +13,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-parent</artifactId>
-				<version>Brixton.RC1</version>
+				<version>Brixton.RELEASE</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
