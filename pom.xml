@@ -8,7 +8,7 @@
 		<relativePath />
 	</parent>
 	<groupId>com.lenicliu</groupId>
-	<artifactId>eg-spring-boot</artifactId>
+	<artifactId>eg-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
@@ -41,10 +41,11 @@
 		<module>eg-spring-boot-war</module>
 		<module>eg-spring-boot-webmvc</module>
 		<module>eg-spring-boot-websocket</module>
-		<module>eg-spring-cloud</module>
-		<module>eg-spring-security</module>
 		<module>eg-spring-boot-flyway</module>
 		<module>eg-spring-boot-session-jdbc</module>
+		<module>eg-spring-cloud</module>
+		<module>eg-spring-security</module>
+		<module>eg-spring-boot</module>
 	</modules>
 
 	<dependencyManagement>

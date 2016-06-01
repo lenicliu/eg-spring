@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.lenicliu</groupId>
-		<artifactId>eg-spring-boot</artifactId>
+		<artifactId>eg-spring</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>eg-spring-cloud</artifactId>
