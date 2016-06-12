@@ -15,34 +15,6 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<modules>
-		<module>eg-spring-boot-customizing</module>
-		<module>eg-spring-boot-datarest</module>
-		<module>eg-spring-boot-hateoas</module>
-		<module>eg-spring-boot-jdbc</module>
-		<module>eg-spring-boot-jetty</module>
-		<module>eg-spring-boot-jetty-balancer</module>
-		<module>eg-spring-boot-jetty-proxy</module>
-		<module>eg-spring-boot-jms</module>
-		<module>eg-spring-boot-jsp</module>
-		<module>eg-spring-boot-logging</module>
-		<module>eg-spring-boot-metrics</module>
-		<module>eg-spring-boot-minimum</module>
-		<module>eg-spring-boot-multiviews</module>
-		<module>eg-spring-boot-mybatis</module>
-		<module>eg-spring-boot-mybatis-generator</module>
-		<module>eg-spring-boot-mybatis-starter</module>
-		<module>eg-spring-boot-pretty-json</module>
-		<module>eg-spring-boot-properties</module>
-		<module>eg-spring-boot-rmi</module>
-		<module>eg-spring-boot-servlet</module>
-		<module>eg-spring-boot-session</module>
-		<module>eg-spring-boot-shiro</module>
-		<module>eg-spring-boot-tomcat</module>
-		<module>eg-spring-boot-war</module>
-		<module>eg-spring-boot-webmvc</module>
-		<module>eg-spring-boot-websocket</module>
-		<module>eg-spring-boot-flyway</module>
-		<module>eg-spring-boot-session-jdbc</module>
 		<module>eg-spring-cloud</module>
 		<module>eg-spring-security</module>
 		<module>eg-spring-boot</module>

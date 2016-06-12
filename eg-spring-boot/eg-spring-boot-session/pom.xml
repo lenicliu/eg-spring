@@ -6,6 +6,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>eg-spring-boot-session</artifactId>
+	<packaging>pom</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.session</groupId>
@@ -16,4 +17,9 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
+	<modules>
+		<module>eg-spring-boot-session-jdbc</module>
+		<module>eg-spring-boot-session-simple</module>
+		<module>eg-spring-boot-session-mongodb</module>
+	</modules>
 </project>
