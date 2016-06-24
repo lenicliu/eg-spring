@@ -1,0 +1,15 @@
+spring: 
+ mvc: 
+  view: 
+   prefix: /WEB-INF/jsp/
+   suffix: .jsp
+
+github:
+ client: 
+  clientId: 4ccc59906a14649ddce9
+  clientSecret: 037fb80179d4e16f6e5a596f0eddb2962dc1f93d
+  accessTokenUri: https://github.com/login/oauth/access_token
+  userAuthorizationUri: https://github.com/login/oauth/authorize
+  clientAuthenticationScheme: form
+ resource: 
+  userInfoUri: https://api.github.com/user
