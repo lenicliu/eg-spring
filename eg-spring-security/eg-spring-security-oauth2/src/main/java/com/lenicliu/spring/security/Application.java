@@ -1,12 +1,14 @@
 package com.lenicliu.spring.security;
 
 import java.security.Principal;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.Filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
@@ -66,6 +68,7 @@ public class Application {
 	}
 
 	@Configuration
+	@EnableAutoConfiguration
 	@EnableOAuth2Client
 	public static class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		@Autowired
@@ -81,33 +84,54 @@ public class Application {
 					.and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 		}
 
-		@Bean
-		@ConfigurationProperties("github.client")
-		public OAuth2ProtectedResourceDetails github() {
-			return new AuthorizationCodeResourceDetails();
+		static class ClientResource {
+			private OAuth2ProtectedResourceDetails	client		= new AuthorizationCodeResourceDetails();
+			private ResourceServerProperties		resource	= new ResourceServerProperties();
+
+			OAuth2ProtectedResourceDetails getClient() {
+				return client;
+			}
+
+			ResourceServerProperties getResource() {
+				return resource;
+			}
 		}
 
 		@Bean
-		@ConfigurationProperties("github.resource")
-		public ResourceServerProperties githubResource() {
-			return new ResourceServerProperties();
+		@ConfigurationProperties("github")
+		ClientResource github() {
+			return new ClientResource();
+		}
+
+		@Bean
+		@ConfigurationProperties("stack")
+		ClientResource stack() {
+			return new ClientResource();
 		}
 
 		private Filter ssoFilter() {
-			String userInfoUri = githubResource().getUserInfoUri();
-			String clientId = github().getClientId();
 
-			OAuth2RestTemplate template = new OAuth2RestTemplate(github(), context);
-			UserInfoTokenServices tokenServices = new UserInfoTokenServices(userInfoUri, clientId);
-
-			OAuth2ClientAuthenticationProcessingFilter filter = //
-					new OAuth2ClientAuthenticationProcessingFilter("/signin/github");
-			filter.setRestTemplate(template);
-			filter.setTokenServices(tokenServices);
+			List<Filter> filters = new ArrayList<>();
+			filters.add(filter("/signin/github", github()));
+			filters.add(filter("/signin/stack", stack()));
 
 			CompositeFilter compositefilter = new CompositeFilter();
-			compositefilter.setFilters(Arrays.asList(filter));
+			compositefilter.setFilters(filters);
 			return compositefilter;
+		}
+
+		private OAuth2ClientAuthenticationProcessingFilter filter(String url, ClientResource resource) {
+			OAuth2ProtectedResourceDetails client = resource.getClient();
+			String uri = resource.getResource().getUserInfoUri();
+
+			OAuth2RestTemplate template = new OAuth2RestTemplate(client, context);
+			UserInfoTokenServices tokenServices = new UserInfoTokenServices(uri, client.getClientId());
+
+			OAuth2ClientAuthenticationProcessingFilter filter = //
+					new OAuth2ClientAuthenticationProcessingFilter(url);
+			filter.setRestTemplate(template);
+			filter.setTokenServices(tokenServices);
+			return filter;
 		}
 
 		@Bean

@@ -13,3 +13,13 @@ github:
   clientAuthenticationScheme: form
  resource: 
   userInfoUri: https://api.github.com/user
+  
+stack:
+ client: 
+  clientId: 7392
+  clientSecret: pb*inWwwI2Lgg8NoRGnjvQ((
+  accessTokenUri: https://stackexchange.com/oauth/access_token
+  userAuthorizationUri: https://stackexchange.com/oauth
+  clientAuthenticationScheme: form
+ resource: 
+  userInfoUri: https://api.stackexchange.com/2.2/me
