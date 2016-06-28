@@ -84,36 +84,36 @@ public class Application {
 					.and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 		}
 
-		static class ClientResource {
+		public static class ClientResource {
 			private OAuth2ProtectedResourceDetails	client		= new AuthorizationCodeResourceDetails();
 			private ResourceServerProperties		resource	= new ResourceServerProperties();
 
-			OAuth2ProtectedResourceDetails getClient() {
+			public OAuth2ProtectedResourceDetails getClient() {
 				return client;
 			}
 
-			ResourceServerProperties getResource() {
+			public ResourceServerProperties getResource() {
 				return resource;
 			}
 		}
 
 		@Bean
 		@ConfigurationProperties("github")
-		ClientResource github() {
+		public ClientResource github() {
 			return new ClientResource();
 		}
 
-		@Bean
-		@ConfigurationProperties("stack")
-		ClientResource stack() {
-			return new ClientResource();
-		}
+//		@Bean
+//		@ConfigurationProperties("yahoo")
+//		public ClientResource yahoo() {
+//			return new ClientResource();
+//		}
 
 		private Filter ssoFilter() {
 
 			List<Filter> filters = new ArrayList<>();
 			filters.add(filter("/signin/github", github()));
-			filters.add(filter("/signin/stack", stack()));
+//			filters.add(filter("/signin/yahoo", yahoo()));
 
 			CompositeFilter compositefilter = new CompositeFilter();
 			compositefilter.setFilters(filters);

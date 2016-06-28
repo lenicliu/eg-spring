@@ -19,7 +19,7 @@
 				<ul>
 					<sec:authorize access="!isAuthenticated()">
 						<li><a href="signin/github">Login with Github</a></li>
-						<li><a href="signin/stack">Login with Stack</a></li>
+<!-- 						<li><a href="signin/yahoo">Login with Yahoo</a></li> -->
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<li><a href="home">Home</a></li>

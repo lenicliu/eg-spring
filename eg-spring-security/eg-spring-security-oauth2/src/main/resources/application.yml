@@ -6,20 +6,10 @@ spring:
 
 github:
  client: 
-  clientId: xxxxxxxxxx
-  clientSecret: xxxxxxxxxx
+  clientId: 4ccc59906a14649ddce9
+  clientSecret: 037fb80179d4e16f6e5a596f0eddb2962dc1f93d
   accessTokenUri: https://github.com/login/oauth/access_token
   userAuthorizationUri: https://github.com/login/oauth/authorize
   clientAuthenticationScheme: form
  resource: 
   userInfoUri: https://api.github.com/user
-  
-stack:
- client: 
-  clientId: 7392
-  clientSecret: pb*inWwwI2Lgg8NoRGnjvQ((
-  accessTokenUri: https://stackexchange.com/oauth/access_token
-  userAuthorizationUri: https://stackexchange.com/oauth
-  clientAuthenticationScheme: form
- resource: 
-  userInfoUri: https://api.stackexchange.com/2.2/me
