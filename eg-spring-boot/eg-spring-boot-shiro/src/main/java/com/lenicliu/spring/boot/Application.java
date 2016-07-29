@@ -16,17 +16,13 @@ import org.apache.shiro.web.filter.authc.UserFilter;
 import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {

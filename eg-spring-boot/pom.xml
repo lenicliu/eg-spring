@@ -33,7 +33,6 @@
 		<module>eg-spring-boot-webmvc</module>
 		<module>eg-spring-boot-websocket</module>
 		<module>eg-spring-boot-flyway</module>
-		<module>eg-spring-boot-session-jdbc</module>
 		<module>eg-spring-boot-jmh</module>
   </modules>
 </project>
