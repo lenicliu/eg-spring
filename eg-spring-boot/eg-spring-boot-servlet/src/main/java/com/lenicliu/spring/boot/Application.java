@@ -25,16 +25,6 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean(name = "characterEncodingFilter")
-	public FilterRegistrationBean characterEncodingFilter() {
-		FilterRegistrationBean bean = new FilterRegistrationBean();
-		bean.addInitParameter("encoding", "UTF-8");
-		bean.addInitParameter("forceEncoding", "true");
-		bean.setFilter(new CharacterEncodingFilter());
-		bean.addUrlPatterns("/*");
-		return bean;
-	}
-
 	@Bean(name = "indexServlet")
 	public ServletRegistrationBean indexServlet() {
 		ServletRegistrationBean bean = new ServletRegistrationBean();
