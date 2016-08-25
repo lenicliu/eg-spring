@@ -16,14 +16,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.client.DefaultOAuth2RequestAuthenticator;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
+import org.springframework.security.oauth2.client.OAuth2RequestAuthenticator;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilter;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.stereotype.Controller;
@@ -85,8 +89,8 @@ public class Application {
 		}
 
 		public static class ClientResource {
-			private OAuth2ProtectedResourceDetails	client		= new AuthorizationCodeResourceDetails();
-			private ResourceServerProperties		resource	= new ResourceServerProperties();
+			private OAuth2ProtectedResourceDetails client = new AuthorizationCodeResourceDetails();
+			private ResourceServerProperties resource = new ResourceServerProperties();
 
 			public OAuth2ProtectedResourceDetails getClient() {
 				return client;
@@ -103,29 +107,44 @@ public class Application {
 			return new ClientResource();
 		}
 
-//		@Bean
-//		@ConfigurationProperties("yahoo")
-//		public ClientResource yahoo() {
-//			return new ClientResource();
-//		}
+		@Bean
+		@ConfigurationProperties("google")
+		public ClientResource google() {
+			return new ClientResource();
+		}
+
+		public static class GoogleOAuth2RequestAuthenticator extends DefaultOAuth2RequestAuthenticator {
+			@Override
+			public void authenticate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext clientContext,
+					ClientHttpRequest request) {
+				OAuth2AccessToken accessToken = clientContext.getAccessToken();
+				String tokenType = OAuth2AccessToken.BEARER_TYPE;
+				request.getHeaders().set("Authorization", String.format("%s %s", tokenType, accessToken.getValue()));
+			}
+		}
 
 		private Filter ssoFilter() {
 
 			List<Filter> filters = new ArrayList<>();
-			filters.add(filter("/signin/github", github()));
-//			filters.add(filter("/signin/yahoo", yahoo()));
+			filters.add(filter("/signin/github", github(), null));
+			filters.add(filter("/signin/google", google(), new GoogleOAuth2RequestAuthenticator()));
 
 			CompositeFilter compositefilter = new CompositeFilter();
 			compositefilter.setFilters(filters);
 			return compositefilter;
 		}
 
-		private OAuth2ClientAuthenticationProcessingFilter filter(String url, ClientResource resource) {
+		private OAuth2ClientAuthenticationProcessingFilter filter(String url, ClientResource resource,
+				OAuth2RequestAuthenticator authenticator) {
 			OAuth2ProtectedResourceDetails client = resource.getClient();
 			String uri = resource.getResource().getUserInfoUri();
 
 			OAuth2RestTemplate template = new OAuth2RestTemplate(client, context);
 			UserInfoTokenServices tokenServices = new UserInfoTokenServices(uri, client.getClientId());
+
+			if (authenticator != null) {
+				template.setAuthenticator(authenticator);
+			}
 
 			OAuth2ClientAuthenticationProcessingFilter filter = //
 					new OAuth2ClientAuthenticationProcessingFilter(url);
