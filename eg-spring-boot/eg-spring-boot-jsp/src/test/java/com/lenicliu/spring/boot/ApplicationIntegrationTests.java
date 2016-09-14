@@ -1,39 +1,22 @@
 package com.lenicliu.spring.boot;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = WebEnvironment.DEFINED_PORT)
 public class ApplicationIntegrationTests {
 
-    private WebDriver driver;
-
-    @Before
-    public void before() {
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public void after() {
-        driver.close();
-    }
-
     @Test
     public void testHome() {
-        driver.get("http://localhost:8080");
-        WebElement body = driver.findElement(By.tagName("body"));
-        WebElement p = body.findElement(By.tagName("p"));
-        Assert.assertTrue(p.getText().contains("Hello Spring Boot"));
+        String url = "http://localhost:8080";
+        TestRestTemplate template = new TestRestTemplate();
+        String response = template.getForObject(url, String.class);
+        Assert.assertTrue(response.contains("Hello Spring Boot"));
     }
 }
