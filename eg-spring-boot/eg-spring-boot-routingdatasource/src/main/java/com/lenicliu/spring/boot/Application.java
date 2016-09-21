@@ -2,6 +2,7 @@ package com.lenicliu.spring.boot;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
@@ -107,12 +108,21 @@ public class Application {
     }
 
     class RoutingDataSource extends AbstractRoutingDataSource {
-        RoutingDataSource() {
+        @Autowired
+        @Qualifier("app")
+        private DataSource app;
+        @Autowired
+        @Qualifier("log")
+        private DataSource log;
+
+        @Override
+        public void afterPropertiesSet() {
             Map<Object, Object> target = new HashMap<>();
-            target.put(DB.APP, app());
-            target.put(DB.LOG, log());
+            target.put(DB.APP, this.app);
+            target.put(DB.LOG, this.log);
             this.setTargetDataSources(target);
-            this.setDefaultTargetDataSource(app());
+            this.setDefaultTargetDataSource(app);
+            super.afterPropertiesSet();
         }
 
         @Override
