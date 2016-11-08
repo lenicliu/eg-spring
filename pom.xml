@@ -8,5 +8,6 @@
 		<module>eg-spring-cloud</module>
 		<module>eg-spring-security</module>
 		<module>eg-spring-boot</module>
+		<module>eg-spring-framework</module>
 	</modules>
 </project>
