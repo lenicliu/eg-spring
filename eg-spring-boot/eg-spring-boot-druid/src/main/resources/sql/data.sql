@@ -1,0 +1,2 @@
+INSERT INTO MESSAGE(ID,AUTHOR,EMAIL,CONTENT,CREATED)VALUES('000001','Richard','richard@hotmail.com','Hi, Spring Boot','2014-10-28 13:50:00');
+INSERT INTO MESSAGE(ID,AUTHOR,EMAIL,CONTENT,CREATED)VALUES('000002','Allen','allen@gmail.com','I don''t like Spring Boot','2014-10-29 03:07:32');
