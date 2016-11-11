@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lenicliu on 11/10/16.
  */
@@ -16,11 +19,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class OptionServiceImpl implements OptionService {
     @Autowired
     private OptionMapper optionMapper;
+    private static final Map<String, String> DEFAULT = new HashMap<String, String>() {{
+        put(OptionService.PAGESIZE, "5");
+    }};
+
     @Override
     public Option find(String name) {
-        if(StringUtils.isBlank(name)){
+        if (StringUtils.isBlank(name)) {
             return null;
         }
-        return optionMapper.find(name);
+        Option option = optionMapper.find(name);
+        if (option == null && DEFAULT.get(name) != null) {
+            optionMapper.insert(name, DEFAULT.get(name));
+            option = optionMapper.find(name);
+        }
+        return option == null ? new Option(name, DEFAULT.get(name)) : option;
     }
 }

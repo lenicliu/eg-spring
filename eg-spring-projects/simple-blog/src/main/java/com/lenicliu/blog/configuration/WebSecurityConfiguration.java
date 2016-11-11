@@ -38,7 +38,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .x509().disable();
         http // 权限配置
-                .authorizeRequests().antMatchers("/admin/*", "/metrics/*").authenticated().and()
+                .authorizeRequests().antMatchers("/admin/*", "/metrics/*", "/metrics").authenticated().and()
                 .authorizeRequests().antMatchers("/login", "/j_spring_security_check", "/webjars/**").permitAll();
         http // 会话配置
                 .sessionManagement().maximumSessions(1);
