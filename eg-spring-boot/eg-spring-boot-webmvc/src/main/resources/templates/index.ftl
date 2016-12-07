@@ -10,8 +10,8 @@
 			<li><a href="meta-inf.resources.txt">meta-inf.resources.txt</a></li>
 			<li><a href="contact">contact(json)</a></li>
 			<li><a href="contact.html">contact(freemarker)</a></li>
-			<li><a href="error404">404</a></li>
-			<li><a href="error500">500</a></li>
+			<li><a href="pagenotfound">404</a></li>
+			<li><a href="serverinternalerror">500</a></li>
 		</ul>
 	</body> 
 </html> 

@@ -23,8 +23,8 @@ public class Application {
 	private static class CustomizedContainer implements EmbeddedServletContainerCustomizer {
 		@Override
 		public void customize(ConfigurableEmbeddedServletContainer container) {
-			container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.ftl"));
-			container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error.ftl"));
+			container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
+			container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html"));
 		}
 	}
 }

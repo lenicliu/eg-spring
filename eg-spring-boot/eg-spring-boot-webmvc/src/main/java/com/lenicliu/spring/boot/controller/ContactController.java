@@ -15,12 +15,12 @@ public class ContactController {
 
 	@RequestMapping("/contact")
 	public @ResponseBody List<Contact> contactJSON() {
-		return Arrays.asList(new Contact("张三", "13312341234"), new Contact("李四", "13945672345"));
+		return Arrays.asList(new Contact("lenicliu", "13312341234"), new Contact("richard", "13945672345"));
 	}
 
 	@RequestMapping("/contact.html")
 	public ModelAndView contactHtml() {
-		List<Contact> contacts = Arrays.asList(new Contact("张三", "13312341234"), new Contact("李四", "13945672345"));
+		List<Contact> contacts = Arrays.asList(new Contact("lenicliu", "13312341234"), new Contact("richard", "13945672345"));
 		return new ModelAndView("contact", "contactList", contacts);
 	}
 }
