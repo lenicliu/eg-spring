@@ -19,4 +19,11 @@ public class ApplicationIntegrationTests {
         String response = template.getForObject(url, String.class);
         Assert.assertTrue(response.contains("Hello Spring Boot"));
     }
+    @Test
+    public void test404() {
+        String url = "http://localhost:8080/notfound";
+        TestRestTemplate template = new TestRestTemplate();
+        String response = template.getForObject(url, String.class);
+        Assert.assertTrue(response.contains("404"));
+    }
 }

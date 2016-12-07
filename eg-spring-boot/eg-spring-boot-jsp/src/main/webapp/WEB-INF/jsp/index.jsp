@@ -9,5 +9,7 @@
 	<p>${message}</p>
 	<a href="A.txt">src/main/webapp/A.txt</a><br/>
 	<a href="B.txt">src/main/resources/static/B.txt</a><br/>
+	<a href="pagenotfound">404</a><br/>
+	<a href="serverinternalerror">500</a><br/>
 </body>
 </html>
