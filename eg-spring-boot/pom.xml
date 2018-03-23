@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
+		<version>1.5.10.RELEASE</version>
 		<relativePath />
 	</parent>
 	<groupId>com.lenicliu</groupId>
@@ -39,6 +39,7 @@
 		<module>eg-spring-boot-jmh</module>
 		<module>eg-spring-boot-routingdatasource</module>
 		<module>eg-spring-boot-druid</module>
+		<module>eg-spring-boot-configurable</module>
 	</modules>
 	<properties>
 		<java.version>1.8</java.version>
